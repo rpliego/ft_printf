@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printc.c                                        :+:      :+:    :+:   */
+/*   ft_printunsigned.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpliego <rpliego@student.42barcelo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 23:15:31 by rpliego           #+#    #+#             */
-/*   Updated: 2023/05/20 23:15:32 by rpliego          ###   ########.fr       */
+/*   Created: 2023/05/23 17:56:20 by rpliego           #+#    #+#             */
+/*   Updated: 2023/05/23 17:56:21 by rpliego          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_printc(int out, char c)
+int	ft_printunsigned(int out, unsigned int n)
 {
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	out += 1;
+	if (n > 9)
+	{
+		out = ft_printunsigned(out, (n / 10));
+		if (out == -1)
+			return (-1);
+	}
+	out = ft_printc(out, (n % 10 + 48));
 	return (out);
 }
