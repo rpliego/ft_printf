@@ -14,7 +14,7 @@
 
 int	ft_printnbr(int out, int x)
 {
-	long int	n;
+	long	n;
 
 	n = x;
 	if (n < 0)
