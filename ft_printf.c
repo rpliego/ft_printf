@@ -58,12 +58,27 @@ int	ft_find(const char *str, va_list args, int out)
 
 int	ft_printf(char const *str, ...)
 {
-	va_list	ap;
+	va_list	arg;
 	int		out;
 
 	out = 0;
-	va_start (ap, str);
-	out = ft_find(str, ap, out);
-	va_end (ap);
+	va_start (arg, str);
+	out = ft_find(str, arg, out);
+	va_end (arg);
 	return (out);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	int hex = -0xa3;
+//     char *ptr = "buenas";
+//     char caracter = 'A';
+//     char cadena[] = "Hola";
+    
+//     int caracteresImpresos = printf("Entero: %d\nptr: %p\nCarácter: %c\nCadena: %s\n", hex, ptr, caracter, cadena);
+//     ft_printf("La función printf imprimió %d caracteres\n", caracteresImpresos);
+    
+//     return 0;
+// }
